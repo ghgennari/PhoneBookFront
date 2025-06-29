@@ -10,6 +10,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { provideHttpClient } from '@angular/common/http';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    ContactsComponent
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ListComponent
   ],
   providers: [
     provideHttpClient()

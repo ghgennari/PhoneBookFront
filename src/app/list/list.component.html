@@ -1,0 +1,13 @@
+<div class="filters">
+  <input type="text" *ngModel="searchTerm" (input)="filterContacts()" placeholder="Search contacts..." />
+  <button (click)="toggleFavorites()">
+    {{ showFavoritesOnly ? 'Todos' : 'Favoritos' }}
+  </button>
+</div>
+
+<ul>
+  <li *ngFor="let contact of filteredContacts">
+    <strong>{{ contact.name }}</strong> - {{ contact.email }} - {{ contact.number }}
+    <span *ngIf="contact.favorite">★</span>
+  </li>
+</ul>

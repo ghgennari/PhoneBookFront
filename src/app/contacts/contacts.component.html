@@ -1,7 +1,7 @@
 <!-- Filtro -->
-<input type="text" class="form-control mb-2" placeholder="Buscar contato..." [(ngModel)]="searchTerm" (input)="filterContacts()">
+<input type="text" class="form-control mb-2" placeholder="Buscar contato..." (input)="filterContacts()">
 
-<select class="form-select mb-3" [(ngModel)]="selectedCategory" (change)="filterContacts()">
+<select class="form-select mb-3" (change)="filterContacts()">
   <option value="">Todas categorias</option>
   <option value="Family">Família</option>
   <option value="Friends">Amigos</option>
@@ -9,7 +9,7 @@
   <option value="Others">Outros</option>
 </select>
 
-<!-- Formulário -->
+<div class="col-7 m-auto">
 <form [formGroup]="formGroupContact" (ngSubmit)="isEditing ? update() : save()">
   <input formControlName="name" placeholder="Nome" class="form-control mb-2">
   <input formControlName="number" placeholder="Telefone" class="form-control mb-2">
@@ -31,6 +31,7 @@
   <button type="submit" class="btn btn-primary">{{ isEditing ? 'Atualizar' : 'Salvar' }}</button>
   <button type="button" class="btn btn-secondary ms-2" (click)="clear()">Limpar</button>
 </form>
+</div>
 
 <!-- Lista de contatos -->
 <ul class="list-group mt-4">
