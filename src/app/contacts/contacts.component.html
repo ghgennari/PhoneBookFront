@@ -1,45 +1,13 @@
-<!-- Filtro -->
-<input type="text" class="form-control mb-2" placeholder="Buscar contato..." (input)="filterContacts()">
-
-<select class="form-select mb-3" (change)="filterContacts()">
-  <option value="">Todas categorias</option>
-  <option value="Family">Família</option>
-  <option value="Friends">Amigos</option>
-  <option value="Work">Trabalho</option>
-  <option value="Others">Outros</option>
-</select>
-
-<div class="col-7 m-auto">
-<form [formGroup]="formGroupContact" (ngSubmit)="isEditing ? update() : save()">
-  <input formControlName="name" placeholder="Nome" class="form-control mb-2">
-  <input formControlName="number" placeholder="Telefone" class="form-control mb-2">
-  <input formControlName="email" placeholder="Email" class="form-control mb-2">
-  <input formControlName="address" placeholder="Endereço" class="form-control mb-2">
-  <select formControlName="category" class="form-control mb-2">
-    <option value="Family">Família</option>
-    <option value="Friends">Amigos</option>
-    <option value="Work">Trabalho</option>
-    <option value="Others">Outros</option>
-  </select>
-  <textarea formControlName="notes" placeholder="Observações" class="form-control mb-2"></textarea>
-  <input formControlName="photoUrl" placeholder="URL da foto" class="form-control mb-2">
-  <div class="form-check mb-2">
-    <input type="checkbox" class="form-check-input" formControlName="favorite">
-    <label class="form-check-label">Favorito</label>
-  </div>
-
-  <button type="submit" class="btn btn-primary">{{ isEditing ? 'Atualizar' : 'Salvar' }}</button>
-  <button type="button" class="btn btn-secondary ms-2" (click)="clear()">Limpar</button>
+<form [formGroup]="formGroupContact" (ngSubmit)="save()">
+  <input type="text" formControlName="name" placeholder="Name">
+  <input type="text" formControlName="number" placeholder="Number">
+  <input type="email" formControlName="email" placeholder="Email">
+  <input type="text" formControlName="address" placeholder="Address">
+  <input type="text" formControlName="category" placeholder="Category">
+  <label>
+    Favorite: <input type="checkbox" formControlName="favorite">
+  </label>
+  <input type="text" formControlName="notes" placeholder="Notes">
+  <input type="text" formControlName="photoUrl" placeholder="Photo URL">
+  <button type="submit">Save</button>
 </form>
-</div>
-
-<!-- Lista de contatos -->
-<ul class="list-group mt-4">
-  <li *ngFor="let contact of filteredContacts" class="list-group-item d-flex justify-content-between align-items-center">
-    {{ contact.name }} - {{ contact.number }} - {{ contact.category }}
-    <div>
-      <button class="btn btn-sm btn-info me-2" (click)="onClickUpdate(contact)">Editar</button>
-      <button class="btn btn-sm btn-danger" (click)="delete(contact)">Excluir</button>
-    </div>
-  </li>
-</ul>

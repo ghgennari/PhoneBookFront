@@ -1,3 +1,37 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "id": 1,
+      "name": "teeste",
+      "number": "teste",
+      "email": "tetete",
+      "address": "testaste",
+      "category": "Friends",
+      "favorite": false,
+      "notes": "teastae",
+      "photoUrl": "aetaeta"
+    },
+    {
+      "id": 2,
+      "name": "Nome",
+      "number": "Telefone",
+      "email": "Email",
+      "address": "Endereço",
+      "category": "Friends",
+      "favorite": false,
+      "notes": "Obs",
+      "photoUrl": "Foto"
+    },
+    {
+      "id": 3,
+      "name": "Fav",
+      "number": "fav",
+      "email": "fav",
+      "address": "fav",
+      "category": "Family",
+      "favorite": true,
+      "notes": "fav",
+      "photoUrl": "fav"
+    }
+  ]
 }

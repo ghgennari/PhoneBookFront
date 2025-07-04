@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { ContactsComponent } from './contacts/contacts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
+import { ContactComponent } from './contacts/contacts.component';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +19,15 @@ import { ListComponent } from './list/list.component';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    ContactsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    ListComponent
+    ListComponent,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

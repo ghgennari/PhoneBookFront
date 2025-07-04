@@ -1,13 +1,18 @@
-<div class="filters">
-  <input type="text" *ngModel="searchTerm" (input)="filterContacts()" placeholder="Search contacts..." />
-  <button (click)="toggleFavorites()">
-    {{ showFavoritesOnly ? 'Todos' : 'Favoritos' }}
-  </button>
-</div>
+<input [(ngModel)]="searchTerm" (ngModelChange)="filterContacts()" placeholder="Search by name">
+<select [(ngModel)]="categoryFilter" (change)="filterContacts()">
+  <option value="">All Categories</option>
+  <option value="Work">Work</option>
+  <option value="Family">Family</option>
+  <option value="Friends">Friends</option>
+</select>
+<label>
+  <input type="checkbox" [(ngModel)]="showFavoritesOnly" (change)="filterContacts()">
+  Show Favorites
+</label>
 
 <ul>
   <li *ngFor="let contact of filteredContacts">
-    <strong>{{ contact.name }}</strong> - {{ contact.email }} - {{ contact.number }}
-    <span *ngIf="contact.favorite">★</span>
+    {{ contact.name }} - {{ contact.number }} - {{ contact.category }}
+    <span *ngIf="contact.favorite">⭐</span>
   </li>
 </ul>
